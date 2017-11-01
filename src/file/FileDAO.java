@@ -4,21 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-import org.apache.log4j.Logger;
-
-
-
 
 public class FileDAO {
 	private Connection conn;
-    private final Logger logger = Logger.getLogger(FileDAO.class);	
+    //private final Logger logger = Logger.getLogger(FileDAO.class);	
 	public FileDAO() {
 		try {
 			String dbURL="jdbc:mysql://localhost:3306/studydb";
 			String dbID="study";
 			String dbPassword="study";
 			
-			Class.forName("com.mysql.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 		} catch (Exception e) {
@@ -29,7 +25,7 @@ public class FileDAO {
 	}
    public int upload(String fileName, String fileRealName) {
 	   
-	   String SQL = "insert into file  valuse(?,?)	";
+	   String SQL = "insert into file  values(?,?)	";
 	   try {
 		   PreparedStatement psmt = conn.prepareStatement(SQL);
 		   psmt.setString(1, fileName);  
