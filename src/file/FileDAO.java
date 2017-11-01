@@ -9,10 +9,10 @@ import org.apache.log4j.Logger;
 
 
 
-public class fileDAO {
+public class FileDAO {
 	private Connection conn;
-    private final Logger logger = Logger.getLogger(fileDAO.class);	
-	public fileDAO() {
+    private final Logger logger = Logger.getLogger(FileDAO.class);	
+	public FileDAO() {
 		try {
 			String dbURL="jdbc:mysql://localhost:3306/studydb";
 			String dbID="study";

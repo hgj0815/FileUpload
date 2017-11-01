@@ -1,6 +1,6 @@
 package file;
 
-public class fileDTO {
+public class FileDTO {
 	String fileNaem;
 	String fileRealName;
 	public String getFileNaem() {
