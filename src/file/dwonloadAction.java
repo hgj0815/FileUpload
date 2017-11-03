@@ -65,6 +65,7 @@ public class dwonloadAction extends HttpServlet {
 			servletOutputStream.write(b,0,data);
 		}
 		
+		new FileDAO().hit(fileName);
 //		전부 전달 
 		servletOutputStream.flush();
 //		닫아주기

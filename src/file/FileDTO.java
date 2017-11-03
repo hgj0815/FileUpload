@@ -1,13 +1,14 @@
 package file;
 
 public class FileDTO {
-	String fileNaem;
+	String fileName;
 	String fileRealName;
-	public String getFileNaem() {
-		return fileNaem;
+	int downloadCount;
+	public String getfileName() {
+		return fileName;
 	}
-	public void setFileNaem(String fileNaem) {
-		this.fileNaem = fileNaem;
+	public void setfileName(String fileName) {
+		this.fileName = fileName;
 	}
 	public String getFileRealName() {
 		return fileRealName;
@@ -15,6 +16,19 @@ public class FileDTO {
 	public void setFileRealName(String fileRealName) {
 		this.fileRealName = fileRealName;
 	}
+	public int getDownloadCount() {
+		return downloadCount;
+	}
+	public void setDownloadCount(int downloadCount) {
+		this.downloadCount = downloadCount;
+	}
 	
+	public FileDTO(String fileName,String fileRealName,int downloadCount) {
+		super();
+		this.fileName = fileName;
+		this.fileRealName = fileRealName;
+		this.downloadCount = downloadCount;
+		
+	}
 	
 }
