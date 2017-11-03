@@ -1,9 +1,9 @@
-<%@ page import ="file.FileDAO" %>
-<%@ page import="java.io.File" %>
-<%@ page import=" com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
-<%@ page import=" com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="file.FileDAO"%>
+<%@ page import="java.io.File"%>
+<%@ page import=" com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@ page import=" com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -29,9 +29,21 @@
 	     String fileName = multipartRequest.getOriginalFileName("file");
 	     String fileRealName = multipartRequest.getFilesystemName("file");
 	      
-	     new FileDAO().upload(fileName, fileRealName);
+	     //선택된 확장자 파일민 업로드  
+	     if(! fileName.endsWith(".doc") && ! fileName.endsWith(".hwp") &&
+	    		 ! fileName.endsWith(".pdf") &&  ! fileName.endsWith(".xls")){
+	    	 File file = new File(directory ,fileRealName);
+	    	 file.delete();
+	    	 out.write("업로드를 할 수 없는 확장자입니다.");
+	     }else{
+ 	     new FileDAO().upload(fileName, fileRealName);
 	     out.write("파일명: "+fileName+"<br>");
-	     out.write("실제 파일명: "+fileRealName+"<br>");
-	%> 
+	     out.write("실제 파일명: "+fileRealName+"<br>"); 
+	     }
+/* 	    
+       new FileDAO().upload(fileName, fileRealName);
+	     out.write("파일명: "+fileName+"<br>");
+	     out.write("실제 파일명: "+fileRealName+"<br>"); */
+	%>
 </body>
 </html>

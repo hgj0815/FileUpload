@@ -65,10 +65,8 @@ public class dwonloadAction extends HttpServlet {
 		servletOutputStream.flush();
 //		닫아주기
 		servletOutputStream.close();
-//		닫아주기 
+//	파일 작성 완료 	닫아주기 
 		fileInpuStream.close();
-		
-		
 	}
 
 
