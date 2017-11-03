@@ -17,7 +17,10 @@
 	      //서버의 실제 프로젝트 경로에서 자원을 찾을 때 가장 많이 사용됨
 	      
 	     //저장소 업로드 폴더 찾기
-		 String directory =application.getRealPath("/upload/");
+		 //String directory =application.getRealPath("/upload/");
+		//시큐어코딩으로 root폴더가 아닌 다른 폴더에 지정 저장 
+	     String directory ="C:/jsp/upload/";
+	
 	     //max 100mb제한주기
 	     int maxSize = 1024 * 1024  *100;
 	     String encoding = "UTF-8";

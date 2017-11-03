@@ -26,7 +26,11 @@ public class dwonloadAction extends HttpServlet {
 //		사용자가 요청한 파일이름으로 가져오기
 		String fileName =request.getParameter("file");
 //		서블릿컨텍스트 실제 물리 서버폴더 경로
-		String directory = this.getServletContext().getRealPath("/upload/");
+//		secure coding 전
+		//String directory = this.getServletContext().getRealPath("/upload/");
+//		secure coding 후
+		String directory = "C:/jsp/upload/";
+		
 		File file = new File(directory +"/"+fileName);
 		
 //		mine타입 어떤 정보를 가져올지 알려주는것 파일 타입
